@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rail Madad - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+        .sidebar {
+            background-color: #003366;
+        }
+        .card {
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="sidebar w-64 text-white p-4">
+            <div class="flex items-center space-x-2 mb-8">
+                <i class="fas fa-train text-2xl"></i>
+                <h1 class="text-xl font-bold">Rail Madad</h1>
+            </div>
+            <nav>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="flex items-center space-x-2 p-2 rounded hover:bg-blue-700">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="complaint-form.html" class="flex items-center space-x-2 p-2 rounded hover:bg-blue-700">
+                            <i class="fas fa-comment-dots"></i>
+                            <span>Lodge Complaint</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="live-train.html" class="flex items-center space-x-2 p-2 rounded hover:bg-blue-700">
+                            <i class="fas fa-train"></i>
+                            <span>Live Train Status</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ticket-booking.html" class="flex items-center space-x-2 p-2 rounded hover:bg-blue-700">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Book Tickets</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="medical-help.html" class="flex items-center space-x-2 p-2 rounded hover:bg-blue-700">
+                            <i class="fas fa-ambulance"></i>
+                            <span>Medical Help</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="logoutButton" class="flex items-center space-x-2 p-2 rounded hover:bg-blue-700">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8 overflow-y-auto">
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-2xl font-bold text-gray-800">Welcome Back, <span id="userName">User</span></h1>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <i class="fas fa-bell text-gray-500 text-xl"></i>
+                        <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                        <span id="userInitial">U</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="card bg-white p-6 rounded-lg shadow">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i class="fas fa-train text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-semibold">Check Train Status</h2>
+                            <p class="text-sm text-gray-500">Real-time updates</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-white p-6 rounded-lg shadow">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                            <i class="fas fa-ticket-alt text-green-500"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-semibold">Book Tickets</h2>
+                            <p class="text-sm text-gray-500">IRCTC integration</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-white p-6 rounded-lg shadow">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center">
+                            <i class="fas fa-comment-dots text-yellow-500"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-semibold">Lodge Complaint</h2>
+                            <p class="text-sm text-gray-500">Quick reporting</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-white p-6 rounded-lg shadow">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center">
+                            <i class="fas fa-ambulance text-red-500"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-semibold">Medical Help</h2>
+                            <p class="text-sm text-gray-500">24/7 assistance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Complaints -->
+            <div class="bg-white p-6 rounded-lg shadow mb-8">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-semibold">Your Recent Complaints</h2>
+                    <a href="complaint-form.html" class="text-blue-500 hover:underline">View All</a>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200" id="complaintsTable">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get user data from localStorage
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = 'login.html';
+        }
+
+        // Decode token to get user info
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        document.getElementById('userName').textContent = payload.name || 'User';
+        document.getElementById('userInitial').textContent = payload.name ? payload.name.charAt(0).toUpperCase() : 'U';
+
+        // Logout functionality
+        document.getElementById('logoutButton').addEventListener('click', () => {
+            localStorage.removeItem('token');
+            window.location.href = 'login.html';
+        });
+
+        // Fetch and display user complaints
+        async function fetchComplaints() {
+            try {
+                const response = await fetch('/api/complaints', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    const tableBody = document.getElementById('complaintsTable');
+                    tableBody.innerHTML = data.complaints.map(complaint => `
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${complaint._id.substring(0, 8)}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${complaint.type}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusClass(complaint.status)}">
+                                    ${complaint.status}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${new Date(complaint.createdAt).toLocaleDateString()}</td>
+                        </tr>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Error fetching complaints:', error);
+            }
+        }
+
+        function getStatusClass(status) {
+            switch(status) {
+                case 'Resolved': return 'bg-green-100 text-green-800';
+                case 'In Progress': return 'bg-yellow-100 text-yellow-800';
+                case 'Pending': return 'bg-blue-100 text-blue-800';
+                default: return 'bg-gray-100 text-gray-800';
+            }
+        }
+
+        // Initialize dashboard
+        fetchComplaints();
+    </script>
+</body>
+</html>
